@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Report Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #e8eef8;
+      font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    "
+  >
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      style="padding: 20px 0"
+    >
+      <tr>
+        <td align="center">
+          <table
+            width="600"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            style="background-color: #fff; border-radius: 8px; overflow: hidden"
+          >
+            <!-- Header -->
+            <tr>
+              <td style="padding: 30px 20px; text-align: center">
+                <h1
+                  style="margin: 10px 0 5px; font-size: 24px; font-weight: 600"
+                >
+                  Kings College Int. School
+                </h1>
+                <p
+                  style="
+                    margin: 4px 0;
+                    font-size: 14px;
+                    line-height: 1.4;
+                    color: #666;
+                  "
+                >
+                  &bull; 080223445323 &bull; 5 Amakohia Str Owerri, Imo &bull;
+                  email@kingcollage.com
+                </p>
+              </td>
+            </tr>
+
+            <!-- Student Info Box -->
+            <tr>
+              <td style="padding: 20px">
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="border: 1px solid #ddd; border-radius: 4px"
+                >
+                  <tr>
+                    <!-- Photo & Name -->
+                    <td
+                      width="25%"
+                      style="
+                        padding: 15px;
+                        border-right: 1px solid #ddd;
+                        text-align: center;
+                        vertical-align: top;
+                      "
+                    >
+                      <img
+                        src="https://example.com/student.jpg"
+                        width="80"
+                        height="80"
+                        alt="Vincent Allen"
+                        style="
+                          border-radius: 50%;
+                          display: block;
+                          margin: 0 auto;
+                        "
+                      />
+                      <p
+                        style="
+                          margin: 10px 0 2px;
+                          font-size: 16px;
+                          font-weight: 600;
+                        "
+                      >
+                        Vincent Allen
+                      </p>
+                      <p style="margin: 0; font-size: 12px; color: #999">
+                        ID-134332
+                      </p>
+                    </td>
+                    <!-- Left details -->
+                    <td
+                      width="37.5%"
+                      style="
+                        padding: 15px;
+                        border-right: 1px solid #ddd;
+                        vertical-align: top;
+                        font-size: 14px;
+                        color: #555;
+                        line-height: 1.4;
+                      "
+                    >
+                      <p><strong>Gender:</strong> Male</p>
+                      <p><strong>Email:</strong> vincent@school.com</p>
+                      <p><strong>Reg Number:</strong> 123-456</p>
+                      <p><strong>Result Summary:</strong> A-Average</p>
+                    </td>
+                    <!-- Right details -->
+                    <td
+                      width="37.5%"
+                      style="
+                        padding: 15px;
+                        vertical-align: top;
+                        font-size: 14px;
+                        color: #555;
+                        line-height: 1.4;
+                      "
+                    >
+                      <p><strong>Position:</strong> 2nd</p>
+                      <p><strong>Grand Total:</strong> 1300</p>
+                      <p><strong>Average Total:</strong> 100</p>
+                      <p><strong>Avg Grade Point:</strong> 4.5</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Grades Table -->
+            <tr>
+              <td style="padding: 0 20px 20px">
+                <table
+                  width="100%"
+                  cellpadding="8"
+                  cellspacing="0"
+                  border="1"
+                  style="
+                    border-color: #ddd;
+                    border-collapse: collapse;
+                    font-size: 13px;
+                    color: #444;
+                  "
+                >
+                  <tr style="background: #f4f4f4">
+                    <th>#</th>
+                    <th align="left">Subjects</th>
+                    <th>1st Test</th>
+                    <th>Mid Test</th>
+                    <th>Assignment</th>
+                    <th>Project</th>
+                    <th>Exam</th>
+                    <th>Total</th>
+                    <th>Grade</th>
+                    <th>Remark</th>
+                  </tr>
+                  <!-- Repeat this <tr> block per subject -->
+                  <tr>
+                    <td align="center">1</td>
+                    <td>English language</td>
+                    <td align="center">10</td>
+                    <td align="center">10</td>
+                    <td align="center">10</td>
+                    <td align="center">10</td>
+                    <td align="center">60</td>
+                    <td align="center">100</td>
+                    <td align="center">A</td>
+                    <td>Excellent</td>
+                  </tr>
+                  <!-- ... more subjects ... -->
+                </table>
+              </td>
+            </tr>
+
+            <!-- Key to Grades -->
+            <tr>
+              <td style="padding: 0 20px 20px">
+                <table
+                  width="100%"
+                  cellpadding="10"
+                  cellspacing="0"
+                  border="1"
+                  style="
+                    border-color: #ddd;
+                    border-collapse: collapse;
+                    font-size: 13px;
+                    color: #444;
+                  "
+                >
+                  <tr style="background: #f9f9f9">
+                    <td><strong>Key To Grades</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      A = 70–100, B = 60–69, C = 50–59, D = 45–49, E = 40–44, F
+                      = &lt;40
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Comments & Signatures -->
+            <tr>
+              <td style="padding: 20px">
+                <table
+                  width="100%"
+                  cellpadding="8"
+                  cellspacing="0"
+                  border="0"
+                  style="font-size: 14px; color: #555"
+                >
+                  <tr>
+                    <td width="33%" valign="top">
+                      <p style="margin: 0 0 6px">
+                        <strong>Form Teacher’s Comment</strong>
+                      </p>
+                      <div
+                        style="
+                          border: 1px solid #ddd;
+                          border-radius: 4px;
+                          padding: 8px;
+                          font-style: italic;
+                          color: #666;
+                        "
+                      >
+                        Good performance, keep it up.
+                      </div>
+                    </td>
+                    <td width="33%" valign="top">
+                      <p style="margin: 0 0 6px">
+                        <strong>Form Teacher’s Name</strong>
+                      </p>
+                      <div
+                        style="
+                          border: 1px solid #ddd;
+                          border-radius: 4px;
+                          padding: 8px;
+                          color: #444;
+                        "
+                      >
+                        Mrs. Winner Emeto
+                      </div>
+                    </td>
+                    <td width="33%" valign="top">
+                      <p style="margin: 0 0 6px">
+                        <strong>Form Teacher’s Signature</strong>
+                      </p>
+                      <div
+                        style="
+                          height: 40px;
+                          border: 1px solid #ddd;
+                          border-radius: 4px;
+                        "
+                      ></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="33%" valign="top">
+                      <p style="margin: 20px 0 6px">
+                        <strong>Principal’s Comment</strong>
+                      </p>
+                      <div
+                        style="
+                          border: 1px solid #ddd;
+                          border-radius: 4px;
+                          padding: 8px;
+                          font-style: italic;
+                          color: #666;
+                        "
+                      >
+                        Excellent work this term.
+                      </div>
+                    </td>
+                    <td width="33%" valign="top">
+                      <p style="margin: 20px 0 6px">
+                        <strong>Principal’s Name</strong>
+                      </p>
+                      <div
+                        style="
+                          border: 1px solid #ddd;
+                          border-radius: 4px;
+                          padding: 8px;
+                          color: #444;
+                        "
+                      >
+                        Mr. Amadi Austin
+                      </div>
+                    </td>
+                    <td width="33%" valign="top">
+                      <p style="margin: 20px 0 6px">
+                        <strong>Principal’s Signature</strong>
+                      </p>
+                      <div
+                        style="
+                          height: 40px;
+                          border: 1px solid #ddd;
+                          border-radius: 4px;
+                        "
+                      ></div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

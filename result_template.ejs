@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          box-sizing: border-box;
+          background-color: rgb(255, 255, 255);
+          overflow-x: hidden;
+        }
+
+        .container {
+          width: 100%;
+          height: 100%; /* fit-content */
+          background-color: rgb(255, 255, 255);
+          display: grid;
+          place-items: center;
+          margin: 5px auto;
+          overflow: hidden;
+        }
+        .container-inner {
+          width: 100%;
+          height: 100%;
+          background-color: white;
+          padding: 10px;
+          padding-bottom: 5px;
+        }
+        .header {
+          flex: 1;
+          display: flex;
+          flex-direction: row;
+          background-color: orange;
+          height: 100px;
+        }
+
+        .logo {
+          flex: 0.1;
+          background-color: white;
+          display: grid;
+          place-items: center;
+        }
+        .school {
+          flex: 1;
+          background-color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-transform: capitalize;
+        }
+
+        .school-name,
+        .student-name {
+          margin-bottom: 10px;
+          font-family: SemiBold;
+        }
+        .school-name {
+          font-size: 30px;
+          text-transform: capitalize;
+        }
+
+        p,
+        li {
+          font-family: Text;
+          font-weight: 200;
+          color: #757575;
+        }
+
+        ul {
+          display: flex;
+          margin-bottom: 20px;
+        }
+        li {
+          margin: 0 20px;
+          color: #757575;
+        }
+        .profile-div {
+          flex: 1;
+          display: flex;
+          flex-direction: row;
+          background-color: black;
+          margin: 5px 0;
+        }
+        span {
+          display: flex;
+          flex-direction: row;
+          margin-bottom: 10px;
+        }
+        .profile-pic {
+          background-color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          padding: 10px;
+          border: 1px dotted black;
+        }
+
+        .image-box {
+          height: 70px;
+          width: 70px;
+        }
+
+        .student-detail {
+          text-transform: capitalize;
+          margin-right: 10px;
+          font-weight: SemiBold;
+        }
+        .student-value {
+          text-transform: capitalize;
+          margin-right: 10px;
+        }
+
+        .profile-first-info {
+          flex: 1;
+          background-color: white;
+          border: 1px dotted black;
+          padding: 10px;
+        }
+        .profile-second-info {
+          flex: 1;
+          background-color: white;
+          border: 1px dotted black;
+          padding: 10px;
+        }
+
+        .result-div {
+          height: fit-content;
+          width: 100%;
+          background-color: white;
+          margin: 5px 0;
+        }
+        .grades-div {
+          height: 100px;
+          background-color: white;
+          width: 100%;
+          border: 1px dotted black;
+          margin: 5px 0;
+        }
+        .extras {
+          height: 100px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          background-color: white;
+        }
+
+        .info-detail {
+          padding: 10px;
+          text-transform: capitalize;
+        }
+        .key {
+          text-transform: capitalize;
+          padding: 10px;
+        }
+        .info-value {
+          font-size: 12px;
+          margin-right: 20px;
+          text-transform: capitalize;
+        }
+
+        .info-value-box {
+          padding: 10px;
+          border-bottom: 1px solid gray;
+          width: 100%;
+        }
+
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td,
+        th {
+          border: 1px solid #dddd;
+          text-align: center;
+          padding: 5px;
+          font-family: Light;
+          color: #757575;
+          font-size: 10px;
+        }
+        td {
+          border: 1px solid #dddd;
+          text-align: center;
+          padding: 5px;
+          color: #757575;
+        }
+
+        tr:nth-child(even) {
+          border: 1px solid #dddd;
+          font-family: Light;
+        }
+        .profile-first-info,
+        .profile-second-info,
+        .profile-pic {
+          font-size: 12px;
+        }
+    </style>
+    <title>Result Sheet</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="container-inner">
+          <div class="header">
+            <div class="logo">
+              <img style="height: 50px; width: 50px;" src=<%= schoolLogo %> alt="Logo" class="svg" />
+            </div>
+            <div class="school">
+              <h3 class="school-name"><%= schoolName %></h3>
+              <ul>
+                <li><%= schoolPhone %></li>
+                <li><%= schoolAddress %>, <%= schoolLGA %>, <%= schoolState %></li>
+              </ul>
+            </div>
+          </div>
+          <div class="profile-div">
+            <div class="profile-pic">
+              <div class="image-box">
+                <img
+                  style="height: 50px; width: 50px;"
+                  src=<%= studentImage %>
+                  alt="Student Image"
+                  class="svg"
+                />
+              </div>
+              <h4 class="student-name"><%= studentFirstName %> <%= studentLastName %></h4>
+              <p class="student-id"><%= studentId %></p>
+            </div>
+            <div class="profile-first-info">
+              <span>
+                <p class="student-detail">gender:</p>
+                <p class="student-value"><%= studentGender %></p>
+              </span>
+              <span>
+                <p class="student-detail">Email:</p>
+                <p class="student-value"><%= studentEmail %></p>
+              </span>
+              <span>
+                <p class="student-detail">Result Comment:</p>
+                <p class="student-value"><%= resultStatus %></p>
+              </span>
+              <span>
+                <p class="student-detail">Class:</p>
+                <p class="student-value"><%= studentClass %></p>
+              </span>
+            </div>
+            <div class="profile-second-info">
+              <span>
+                <p class="student-detail">Position:</p>
+                <p class="student-value"><%= position %></p>
+              </span>
+              <span>
+                <p class="student-detail">No.In Class:</p>
+                <p class="student-value"><%= numInClass %></p>
+              </span>
+              <span>
+                <p class="student-detail">Grand Total:</p>
+                <p class="student-value"><%= totalScore %></p>
+              </span>
+              <span>
+                <p class="student-detail">Average Score:</p>
+                <p class="student-value"><%= average %></p>
+              </span>
+            </div>
+          </div>
+          <div class="result-div">
+            <table>
+              <tr class="top-header">
+                <th>#</th>
+                <th>Subjects</th>
+                <% for(let i = 0; i < examTypes.length; i++){ %>
+                <th><%= examTypes[i].examType %>(<%= examTypes[i].totalScore %>)</th>
+                <% }; %>
+                <th>Total Score(100)</th>
+                <th>Grade</th>
+                <th>Remark</th>
+              </tr>
+              <% for(let i = 0; i < resultScores.length; i++){ %>
+              <tr>
+                <td><%= i+1 %></td>
+                <td><%= resultScores[i].subject %></td>
+                <% if(examTypes[0].examType) { %>
+                <td><%= resultScores[i][examTypes[0].examType] %></td>
+                <% }; %>
+                <% if(examTypes[1])  { %>
+                <td><%= resultScores[i][examTypes[1].examType] %></td>
+                <% }; %>
+                <% if(examTypes[2])  { %>
+                <td><%= resultScores[i][examTypes[2].examType] %></td>
+                <% }; %>
+                <% if(examTypes[3])  { %>
+                <td><%= resultScores[i][examTypes[3].examType] %></td>
+                <% }; %>
+                <td><%= resultScores[i].totalScore %></td>
+                <td><%= resultScores[i].subjectGrade %></td>
+                <td><%= resultScores[i].subjectComment %></td>
+              </tr>
+              <% }; %>
+            </table>
+          </div>
+          
+         
+          <div class="extras">
+            <div class="info">
+              <p class="info-detail">Principal's Name</p>
+              <div class="info-value-box">
+                <p class="info-value"><%= principalName %></p>
+              </div>
+            </div>
+            <div class="info">
+              <p class="info-detail">Principal's Comment</p>
+              <div class="info-value-box">
+                <p class="info-value"><%= principalComment %></p>
+              </div>
+            </div>
+            <div class="info">
+              <p class="info-detail">Principal's Signature</p>
+              <div class="info-value-box">
+                <p class="info-value">
+                  <img style="height: 15px; width: 100px;" src=<%= principalSignature %> alt="Signature" class="svg" />
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

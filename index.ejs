@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Report Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #e8eef8;
+      font-family: Poppins, sans-serif;
+      color: #333;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      "
+    >
+      <!-- Water mark -->
+      <div
+        style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(-56.26deg);
+          transform-origin: center center;
+          opacity: 0.17;
+          font-size: 40px;
+          font-weight: 600;
+        "
+      >
+        <div style="display: flex; gap: 10px; align-items: center">
+          <% if (schoolLogo) { %>
+          <img
+            style="border-radius: 10px"
+            width="96px"
+            src="<%= schoolLogo %>"
+            alt="School logo"
+          />
+          <% } %>
+          <span>><%= schoolName %></span>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          padding-left: 32px;
+          padding-top: 12px;
+          padding-right: 32px;
+          padding-bottom: 12px;
+          background-color: #fff;
+          align-items: center;
+          width: 595px;
+          height: 842px;
+        "
+      >
+        <!-- School logo, name, number, address, email -->
+        <div style="display: flex; gap: 13px; width: 100%; margin-bottom: 14px">
+          <% if (schoolLogo) { %>
+          <img
+            style="border-radius: 10px"
+            width="68px"
+            src="<%= schoolLogo %>"
+            alt="School logo"
+          />
+          <% } %>
+
+          <div style="align-self: center; width: 100%">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                align-items: center;
+              "
+            >
+              <h2 style="font-weight: 600; font-size: 16px">
+                <%= schoolName %>
+              </h2>
+              <div
+                style="
+                  display: flex;
+                  gap: 15px;
+                  font-size: 10px;
+                  color: #090909;
+                "
+              >
+                <span><%= schoolPhone %></span>
+                <span>|</span>
+                <span><%= schoolAddress %></span>
+                <span>|</span>
+                <span><%= studentEmail %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student info -->
+        <table
+          width="100%"
+          cellpadding="6px"
+          cellspacing="0"
+          border="0"
+          style="
+            border: 0.5px solid #979797;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+          "
+        >
+          <tr>
+            <!-- Student image, name, ID -->
+            <td
+              style="
+                border: 0.5px solid #979797;
+                text-align: center;
+                width: 1%;
+                white-space: nowrap;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <img
+                  src="<%= studentImage %>"
+                  height="50px"
+                  width="50px"
+                  style="border-radius: 100%; object-fit: cover"
+                />
+                <span style="font-size: 14px; font-weight: 700; color: #071b2a"
+                  ><%= studentFirstName %> <%= studentLastName %></span
+                >
+                <span style="font-size: 10px; color: #91929e"
+                  ><%= studentId %></span
+                >
+              </div>
+            </td>
+            <!-- Gender,..., date of birth -->
+            <td style="border: 0.5px solid #979797; vertical-align: top">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 9px;
+                  font-size: 10px;
+                  color: #090909;
+                "
+              >
+                <span>Gender: <%= studentGender %></span>
+                <span>Reg Number: <%= studentId %></span>
+                <span>Class: <%= studentClass %></span>
+                <span>Number in class: <%= numInClass %></span>
+                <% if (studentDob) { %>
+                <span>Date of birth: <%= studentDob %></span>
+                <% } %>
+              </div>
+            </td>
+            <!-- Term, ..., grade point -->
+            <td style="border: 0.5px solid #979797; vertical-align: top">
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 9px;
+                  font-size: 10px;
+                  color: #090909;
+                "
+              >
+                <span>Term: <%= schoolTerm %></span>
+                <span>Position: <%= position %></span>
+                <span>Average score: <%= average %></span>
+                <span>Total score: <%= totalScore %></span>
+                <span>Grade point: </span>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Result table -->
+        <table
+          width="100%"
+          cellpadding="6px"
+          cellspacing="0"
+          border="0"
+          style="
+            border: 0.5px solid #979797;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+          "
+        >
+          <!-- Result table header -->
+          <thead style="font-size: 8px; font-weight: 600">
+            <tr>
+              <th
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                #
+              </th>
+              <th
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  white-space: nowrap;
+                "
+              >
+                Subjects
+              </th>
+
+              <% for(let i = 0; i < examTypes.length; i++){ %>
+              <th
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  white-space: nowrap;
+                "
+              >
+                <%= examTypes[i].examType %>(<%= examTypes[i].totalScore %>)
+              </th>
+              <% }; %>
+
+              <th
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  white-space: nowrap;
+                "
+              >
+                Total Score(100)
+              </th>
+              <th
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.8%;
+                  white-space: nowrap;
+                "
+              >
+                Grade
+              </th>
+              <th
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  white-space: nowrap;
+                "
+              >
+                Remark
+              </th>
+            </tr>
+          </thead>
+
+          <!-- Result table body -->
+          <tbody style="font-size: 8px; color: #090909">
+            <% for(let i = 0; i < resultScores.length; i++){ %>
+            <tr>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= i+1 %>
+              </td>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= resultScores[i].subject %>
+              </td>
+              <% if(examTypes[0].examType) { %>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= resultScores[i][examTypes[0].examType] %>
+              </td>
+              <% }; %> <% if(examTypes[1]) { %>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= resultScores[i][examTypes[1].examType] %>
+              </td>
+              <% }; %> <% if(examTypes[2]) { %>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= resultScores[i][examTypes[2].examType] %>
+              </td>
+              <% }; %> <% if(examTypes[3]) { %>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= resultScores[i][examTypes[3].examType] %>
+              </td>
+              <% }; %>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= resultScores[i].totalScore %>
+              </td>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= resultScores[i].subjectGrade %>
+              </td>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= resultScores[i].subjectComment %>
+              </td>
+            </tr>
+            <% }; %>
+          </tbody>
+        </table>
+
+        <!-- Key to grades -->
+        <div
+          style="
+            border: 0.5px solid #979797;
+            padding: 4px 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 51px;
+          "
+        >
+          <span style="font-size: 8px; font-weight: 600; color: #090909"
+            >Key to Grades</span
+          >
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 28px;
+            width: 100%;
+          "
+        >
+          <div style="grid-column: span 6">
+            <!-- Principal's Comment -->
+            <div style="display: flex; flex-direction: column; gap: 3px">
+              <span style="font-size: 8px; color: #7d8592"
+                >Principal's Comment</span
+              >
+              <div
+                style="
+                  border: 0.44px solid #d8e0f0;
+                  border-radius: 6px;
+                  box-sizing: border-box;
+                  padding: 6px 9px;
+                  display: flex;
+                  align-items: center;
+                  height: 25px;
+                "
+              >
+                <span style="font-size: 7px"><%= principalComment %></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Principal's Name -->
+          <div style="grid-column: span 3">
+            <div style="display: flex; flex-direction: column; gap: 3px">
+              <span style="font-size: 8px; color: #7d8592"
+                >Principal's Name</span
+              >
+              <div
+                style="
+                  border: 0.44px solid #d8e0f0;
+                  border-radius: 6px;
+                  box-sizing: border-box;
+                  padding: 6px 9px;
+                  display: flex;
+                  align-items: center;
+                  height: 25px;
+                "
+              >
+                <span style="font-size: 7px"><%= principalName %></span>
+              </div>
+            </div>
+          </div>
+          <!-- Principal's Signature -->
+          <div style="grid-column: span 3">
+            <div style="display: flex; flex-direction: column; gap: 3px">
+              <span style="font-size: 8px; color: #7d8592"
+                >Principal's Signature</span
+              >
+              <div
+                style="
+                  border: 0.44px solid #d8e0f0;
+                  border-radius: 6px;
+                  box-sizing: border-box;
+                  padding: 6px 9px;
+                  display: flex;
+                  align-items: center;
+                  height: 25px;
+                "
+              >
+                <img
+                  src="<%= principalSignature %>"
+                  style="object-fit: cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

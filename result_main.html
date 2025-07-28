@@ -39,6 +39,13 @@
           opacity: 0.17;
           font-size: 40px;
           font-weight: 600;
+
+          /* ↓ new bits ↓ */
+          display: inline-flex; /* shrink‑to‑content flex container */
+          flex-wrap: nowrap; /* never wrap items */
+          white-space: nowrap; /* no line‑breaks inside text */
+          width: max-content; /* size to content width */
+          overflow: visible; /* let it flow outside */
         "
       >
         <div style="display: flex; gap: 10px; align-items: center">
@@ -52,6 +59,8 @@
       </div>
       <div
         style="
+          /* width: 595px;
+          height: 842px; */
           display: flex;
           flex-direction: column;
           padding-left: 32px;
@@ -60,8 +69,10 @@
           padding-bottom: 12px;
           background-color: #fff;
           align-items: center;
-          width: 595px;
-          height: 842px;
+          width: 210mm;
+          height: 297mm;
+          overflow: hidden;
+          page-break-after: always;
         "
       >
         <!-- School logo, name, number, address, email -->
@@ -69,7 +80,7 @@
           <img
             src="https://media.istockphoto.com/id/1496613385/photo/smiling-confident-latin-woman-looking-at-camera.webp?s=2048x2048&w=is&k=20&c=fn4rH9adyFVAaV2v2dd3ZksT8ggvnWDAL4Vo5rBPlMA="
             height="68px"
-            style="border-radius: 10px"
+            style="border-radius: 10px; object-fit: cover"
           />
 
           <div style="align-self: center; width: 100%">
@@ -110,6 +121,7 @@
             border: 0.5px solid #979797;
             border-collapse: collapse;
             margin-bottom: 5px;
+            page-break-inside: avoid;
           "
         >
           <tr>
@@ -191,6 +203,7 @@
             border: 0.5px solid #979797;
             border-collapse: collapse;
             margin-bottom: 5px;
+            page-break-inside: avoid;
           "
         >
           <!-- Result table header -->

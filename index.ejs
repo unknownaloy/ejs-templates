@@ -39,6 +39,11 @@
           opacity: 0.17;
           font-size: 40px;
           font-weight: 600;
+          display: inline-flex;
+          flex-wrap: nowrap;
+          white-space: nowrap;
+          width: max-content;
+          overflow: visible;
         "
       >
         <div style="display: flex; gap: 10px; align-items: center">
@@ -50,6 +55,7 @@
             alt="School logo"
           />
           <% } %>
+
           <span>><%= schoolName %></span>
         </div>
       </div>
@@ -63,15 +69,17 @@
           padding-bottom: 12px;
           background-color: #fff;
           align-items: center;
-          width: 595px;
-          height: 842px;
+          width: 210mm;
+          height: 297mm;
+          overflow: hidden;
+          page-break-after: always;
         "
       >
         <!-- School logo, name, number, address, email -->
         <div style="display: flex; gap: 13px; width: 100%; margin-bottom: 14px">
           <% if (schoolLogo) { %>
           <img
-            style="border-radius: 10px"
+            style="border-radius: 10px; object-fit: cover"
             width="68px"
             src="<%= schoolLogo %>"
             alt="School logo"
@@ -118,6 +126,7 @@
             border: 0.5px solid #979797;
             border-collapse: collapse;
             margin-bottom: 5px;
+            page-break-inside: avoid;
           "
         >
           <tr>
@@ -203,6 +212,7 @@
             border: 0.5px solid #979797;
             border-collapse: collapse;
             margin-bottom: 5px;
+            page-break-inside: avoid;
           "
         >
           <!-- Result table header -->

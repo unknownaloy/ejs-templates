@@ -18,6 +18,7 @@
       }
     </style>
   </head>
+
   <body
     style="
       background-color: #fff;
@@ -56,19 +57,22 @@
         "
       >
         <div style="display: flex; gap: 10px; align-items: center">
+          <% if (schoolLogo) { %>
           <img
-            src="https://media.istockphoto.com/id/1496613385/photo/smiling-confident-latin-woman-looking-at-camera.webp?s=2048x2048&w=is&k=20&c=fn4rH9adyFVAaV2v2dd3ZksT8ggvnWDAL4Vo5rBPlMA="
-            width="96px"
             style="border-radius: 10px"
+            width="96px"
+            src="<%= schoolLogo %>"
+            alt="School logo"
           />
-          <span>Kings College Intl. School</span>
+          <% } %>
+
+          <span style="text-transform: capitalize"> <%= schoolName %> </span>
         </div>
       </div>
       <div
         style="
-          /* width: 595px;
-          height: 842px; */
           display: flex;
+          position: relative;
           flex-direction: column;
           padding-left: 32px;
           padding-top: 12px;
@@ -83,11 +87,14 @@
       >
         <!-- School logo, name, number, address, email -->
         <div style="display: flex; gap: 13px; width: 100%; margin-bottom: 14px">
+          <% if (schoolLogo) { %>
           <img
-            src="https://media.istockphoto.com/id/1496613385/photo/smiling-confident-latin-woman-looking-at-camera.webp?s=2048x2048&w=is&k=20&c=fn4rH9adyFVAaV2v2dd3ZksT8ggvnWDAL4Vo5rBPlMA="
-            height="68px"
             style="border-radius: 10px; object-fit: cover"
+            width="68px"
+            src="<%= schoolLogo %>"
+            alt="School logo"
           />
+          <% } %>
 
           <div style="align-self: center; width: 100%">
             <div
@@ -98,7 +105,15 @@
                 align-items: center;
               "
             >
-              <h style="font-weight: 600">Kings College Intl. School</h>
+              <h2
+                style="
+                  font-weight: 600;
+                  font-size: 16px;
+                  text-transform: capitalize;
+                "
+              >
+                <%= schoolName %>
+              </h2>
               <div
                 style="
                   display: flex;
@@ -107,11 +122,13 @@
                   color: #090909;
                 "
               >
-                <span>08073343642</span>
+                <span> <%= schoolPhone %> </span>
                 <span>|</span>
-                <span>No 26 Alaenyi Street, Owerri, Imo State</span>
+                <span style="text-transform: capitalize">
+                  <%= schoolAddress %>
+                </span>
                 <span>|</span>
-                <span>school@gmail.com</span>
+                <span> <%= studentEmail %> </span>
               </div>
             </div>
           </div>
@@ -148,12 +165,18 @@
                   align-items: center;
                 "
               >
-                <!-- <img
-                  src="https://media.istockphoto.com/id/1496613385/photo/smiling-confident-latin-woman-looking-at-camera.webp?s=2048x2048&w=is&k=20&c=fn4rH9adyFVAaV2v2dd3ZksT8ggvnWDAL4Vo5rBPlMA="
+                <% if (studentImage) { %>
+                <img
+                  src="<%= studentImage %>"
                   height="50px"
                   width="50px"
                   style="border-radius: 100%; object-fit: cover"
-                /> -->
+                  alt="Student Photo"
+                />
+                <% } else { %> <% const firstInitial =
+                studentFirstName?.charAt(0).toUpperCase() || ''; const
+                lastInitial = studentLastName?.charAt(0).toUpperCase() || ''; %>
+
                 <div
                   style="
                     font-size: 14px;
@@ -167,12 +190,23 @@
                     background-color: #d8e0f0;
                   "
                 >
-                  ZY
+                  <%= firstInitial + lastInitial %>
                 </div>
-                <span style="font-size: 14px; font-weight: 700; color: #071b2a"
-                  >Vincent Allen</span
+
+                <% } %>
+                <span
+                  style="
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #071b2a;
+                    text-transform: capitalize;
+                  "
                 >
-                <span style="font-size: 10px; color: #91929e"> ID-134332 </span>
+                  <%= studentFirstName %> <%= studentLastName %>
+                </span>
+                <span style="font-size: 10px; color: #91929e">
+                  <%= studentId %>
+                </span>
               </div>
             </td>
             <!-- Gender,..., date of birth -->
@@ -186,11 +220,32 @@
                   color: #090909;
                 "
               >
-                <span>Gender: </span>
-                <span>Reg Number: </span>
-                <span>Class: </span>
-                <span>Number in class: </span>
-                <span>Date of birth: </span>
+                <span
+                  >Gender:
+                  <span style="font-weight: 600"
+                    ><%= studentGender %></span
+                  ></span
+                >
+                <span
+                  >Reg Number:
+                  <span style="font-weight: 600"><%= studentId %></span></span
+                >
+                <span
+                  >Class:
+                  <span style="font-weight: 600"
+                    ><%= studentClass %></span
+                  ></span
+                >
+                <span
+                  >Number in class:
+                  <span style="font-weight: 600"><%= numInClass %></span></span
+                >
+                <% if (studentDob) { %>
+                <span
+                  >Date of birth:
+                  <span style="font-weight: 600"><%= studentDob %></span></span
+                >
+                <% } %>
               </div>
             </td>
             <!-- Term, ..., grade point -->
@@ -204,11 +259,23 @@
                   color: #090909;
                 "
               >
-                <span>Term: </span>
-                <span>Position: </span>
-                <span>Average score: </span>
-                <span>Total score: </span>
-                <span>Grade point: </span>
+                <span
+                  >Term:
+                  <span style="font-weight: 600"><%= schoolTerm %></span></span
+                >
+                <span
+                  >Position:
+                  <span style="font-weight: 600"><%= position %></span></span
+                >
+                <span
+                  >Average score:
+                  <span style="font-weight: 600"><%= average %></span></span
+                >
+                <span
+                  >Total score:
+                  <span style="font-weight: 600"><%= totalScore %></span></span
+                >
+                <!-- <span>Grade point: </span> -->
               </div>
             </td>
           </tr>
@@ -227,6 +294,19 @@
             page-break-inside: avoid;
           "
         >
+          <% const lower=(s)=> s.toLowerCase(); const firstTest =
+          examTypes.find( (et) => lower(et.examType).includes('fir') ||
+          lower(et.examType).includes('1st') ); const secondTest =
+          examTypes.find( (et) => lower(et.examType).includes('sec') ||
+          lower(et.examType).includes('2nd') ||
+          (lower(et.examType).includes('test') &&
+          !lower(et.examType).includes('1st') &&
+          !lower(et.examType).includes('fir')) ); const exam = examTypes.find(
+          (et) => lower(et.examType).includes('exam') ); const remaining =
+          examTypes.filter( (et) => ![firstTest, secondTest, exam].includes(et)
+          ); const orderedExamTypes = [firstTest, secondTest, exam,
+          ...remaining].filter(Boolean); %>
+
           <!-- Result table header -->
           <thead style="font-size: 8px; font-weight: 600">
             <tr>
@@ -249,15 +329,21 @@
               >
                 Subjects
               </th>
+
+              <% for(let i=0; i < orderedExamTypes.length; i++){ %>
               <th
                 style="
                   border: 0.5px solid #979797;
                   text-align: center;
                   white-space: nowrap;
+                  text-transform: capitalize;
                 "
               >
-                First test
+                <%= orderedExamTypes[i].examType %>(<%=
+                orderedExamTypes[i].totalScore %>)
               </th>
+              <% }; %>
+
               <th
                 style="
                   border: 0.5px solid #979797;
@@ -265,25 +351,7 @@
                   white-space: nowrap;
                 "
               >
-                Mid test
-              </th>
-              <th
-                style="
-                  border: 0.5px solid #979797;
-                  text-align: center;
-                  white-space: nowrap;
-                "
-              >
-                Exams
-              </th>
-              <th
-                style="
-                  border: 0.5px solid #979797;
-                  text-align: center;
-                  white-space: nowrap;
-                "
-              >
-                Total Score Obtained
+                Total Score(100)
               </th>
               <th
                 style="
@@ -309,6 +377,7 @@
 
           <!-- Result table body -->
           <tbody style="font-size: 8px; color: #090909">
+            <% for(let i=0; i < resultScores.length; i++){ %>
             <tr>
               <td
                 style="
@@ -318,73 +387,64 @@
                   white-space: nowrap;
                 "
               >
-                1
+                <%= i+1 %>
               </td>
               <td
                 style="
                   border: 0.5px solid #979797;
                   text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                  text-transform: capitalize;
+                "
+              >
+                <%= resultScores[i].subject %>
+              </td>
+              <% for(let j=0; j < orderedExamTypes.length; j++){ %>
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
                   white-space: nowrap;
                 "
               >
-                English Language
+                <%= resultScores[i][orderedExamTypes[j].examType] %>
+              </td>
+              <% }; %>
+
+              <td
+                style="
+                  border: 0.5px solid #979797;
+                  text-align: center;
+                  width: 0.5%;
+                  white-space: nowrap;
+                "
+              >
+                <%= resultScores[i].totalScore %>
               </td>
               <td
                 style="
                   border: 0.5px solid #979797;
                   text-align: center;
+                  width: 0.5%;
                   white-space: nowrap;
                 "
               >
-                10
+                <%= resultScores[i].subjectGrade %>
               </td>
               <td
                 style="
                   border: 0.5px solid #979797;
                   text-align: center;
+                  width: 0.5%;
                   white-space: nowrap;
                 "
               >
-                10
-              </td>
-              <td
-                style="
-                  border: 0.5px solid #979797;
-                  text-align: center;
-                  white-space: nowrap;
-                "
-              >
-                10
-              </td>
-              <td
-                style="
-                  border: 0.5px solid #979797;
-                  text-align: center;
-                  white-space: nowrap;
-                "
-              >
-                100
-              </td>
-              <td
-                style="
-                  border: 0.5px solid #979797;
-                  text-align: center;
-                  width: 0.8%;
-                  white-space: nowrap;
-                "
-              >
-                100
-              </td>
-              <td
-                style="
-                  border: 0.5px solid #979797;
-                  text-align: center;
-                  white-space: nowrap;
-                "
-              >
-                Excellent
+                <%= resultScores[i].subjectComment %>
               </td>
             </tr>
+            <% }; %>
           </tbody>
         </table>
 
@@ -428,7 +488,7 @@
                   height: 25px;
                 "
               >
-                <span style="font-size: 7px">Good performance </span>
+                <span style="font-size: 7px"> <%= principalComment %> </span>
               </div>
             </div>
           </div>
@@ -450,7 +510,7 @@
                   height: 25px;
                 "
               >
-                <span style="font-size: 7px">Mr Amadi Austin </span>
+                <span style="font-size: 7px"> <%= principalName %> </span>
               </div>
             </div>
           </div>
@@ -471,7 +531,10 @@
                   height: 25px;
                 "
               >
-                <span style="font-size: 7px">Mr Amadi Austin </span>
+                <img
+                  src="<%= principalSignature %>"
+                  style="object-fit: cover"
+                />
               </div>
             </div>
           </div>
